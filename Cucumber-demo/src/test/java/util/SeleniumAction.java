@@ -11,7 +11,20 @@ public class SeleniumAction {
 	}
 	
 	public void setvalue(WebElement ele, String str) {
-		ele.sendKeys(str);
+		try{
+			ele.sendKeys(str);
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
+	public void clickCommand(WebElement ele) {
+		try {
+		ele.click();
+		}
+		catch (Exception e) {
+		e.printStackTrace();
+		}
 	}
 
 }

@@ -19,7 +19,7 @@ public class Test {
 	public void user_is_on_homepage() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 	    
-		System.setProperty("webdriver.chrome.driver", "D:\\Prasanth\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
 		driver = new ChromeDriver();
 		driver.get("https://www.totaralearning.com/");
 		driver.manage().window().maximize();
