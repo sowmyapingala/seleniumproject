@@ -10,7 +10,7 @@ public class SeleniumAction {
 		this.driver = driver;
 	}
 	
-	public void setvalue(WebElement ele, String str) {
+	public static void setvalue(WebElement ele, String str) {
 		try{
 			ele.sendKeys(str);
 		}catch(Exception e) {
@@ -18,7 +18,7 @@ public class SeleniumAction {
 		}
 	}
 	
-	public void clickCommand(WebElement ele) {
+	public static void clickCommand(WebElement ele) {
 		try {
 		ele.click();
 		}

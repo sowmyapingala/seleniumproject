@@ -1,11 +1,16 @@
 package pages;
 
+import java.util.Properties;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import util.JavaUtil;
 import util.SeleniumAction;
 
 public class RequestDemoForm {
+	
+	
 
 	SeleniumAction util;
 @FindBy(xpath = "//div[@id='firstname-5b1f094f-3ae0-4e74-9773-5907479e0187']") WebElement eleFirstName;
@@ -29,12 +34,20 @@ public class RequestDemoForm {
 @FindBy(xpath = "//p[contains(text(),'I agree ')]") WebElement eleIagree;
 
 
-public void register() {
-	util.setvalue(eleFirstName, "Fita");
+public void registration() {
+        SeleniumAction.setvalue(eleFirstName, JavaUtil.getValueFromProperties("firstname"));
+        SeleniumAction.setvalue(eleLastName, JavaUtil.getValueFromProperties("lastname"));
+        SeleniumAction.setvalue(eleCompanyName,JavaUtil.getValueFromProperties("companyname") );
+        SeleniumAction.setvalue(eleJobTitle, JavaUtil.getValueFromProperties("jobtitle"));
+        SeleniumAction.setvalue(eleCountry,JavaUtil.getValueFromProperties ("country"));
+        SeleniumAction.setvalue(eleCompanySize,JavaUtil.getValueFromProperties ("companysize"));
+        SeleniumAction.setvalue(elePhoneNumber,JavaUtil.getValueFromProperties ("phonenumber"));
+        SeleniumAction.setvalue(eleEmail,JavaUtil.getValueFromProperties ("email"));
+        SeleniumAction.setvalue(eleDetails, JavaUtil.getValueFromProperties("details"));			
+		
+}
+
+}	
 	
-}
+	
 
-
-
-
-}
