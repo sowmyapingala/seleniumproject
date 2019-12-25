@@ -2,8 +2,10 @@ package pages;
 
 import java.util.Properties;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 import util.JavaUtil;
 import util.SeleniumAction;
@@ -11,6 +13,7 @@ import util.SeleniumAction;
 public class RequestDemoForm {
 	
 	
+	WebDriver driver;
 
 	SeleniumAction util;
 @FindBy(xpath = "//div[@id='firstname-5b1f094f-3ae0-4e74-9773-5907479e0187']") WebElement eleFirstName;
@@ -33,6 +36,10 @@ public class RequestDemoForm {
 
 @FindBy(xpath = "//p[contains(text(),'I agree ')]") WebElement eleIagree;
 
+RequestDemoForm(WebDriver driver){
+	this.driver = driver;
+	PageFactory.initElements(driver, this);
+}
 
 public void registration() {
         SeleniumAction.setvalue(eleFirstName, JavaUtil.getValueFromProperties("firstname"));

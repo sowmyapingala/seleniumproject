@@ -14,7 +14,7 @@ import cucumber.api.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-features = "src/test/java"
+features = "src/test/java", tags= {"@Requests"}
 ,glue= {"seleniumgluecode"},plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html"}, 
 monochrome = true
 )
@@ -25,4 +25,8 @@ public class Testrunner {
 	        Reporter.loadXMLConfig(new File("config.xml"));
 	    
 	    }
+	
+
+		
+	
 }

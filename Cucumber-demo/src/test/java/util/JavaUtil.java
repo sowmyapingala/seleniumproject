@@ -8,6 +8,9 @@ import java.util.Properties;
 
 public class JavaUtil {
 	
+	private static Properties prop;
+	static FileInputStream fis;
+	
 	JavaUtil() throws IOException{
 		JavaUtil.setProp();
 		JavaUtil.setFis();
@@ -15,8 +18,7 @@ public class JavaUtil {
 		
 	}
 	
-	private static Properties prop;
-	static FileInputStream fis;
+
 
 	public static Properties getProp() throws IOException {
 		prop.load(fis);

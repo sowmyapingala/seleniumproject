@@ -8,22 +8,19 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pages.HomePage;
+import pages.RequestDemoForm;
 
-public class Test {
+public class Test extends BaseTest{
 	
 	HomePage homepage;
+	RequestDemoForm req;
 	WebDriver driver;
 	
 
 	@Given("^user is  on homepage$")
 	public void user_is_on_homepage() throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-	    
-		System.setProperty("webdriver.chrome.driver", "./drivers/chromedriver.exe");
-		driver = new ChromeDriver();
-		driver.get("https://www.totaralearning.com/");
-		driver.manage().window().maximize();
-		
+	    // Write code here that turns the phrase above into concrete actions	    
+		driver = BaseTest.driverMethod("https://www.totaralearning.com/");	
 	}
 
 	@When("^user click home logo$")
@@ -47,5 +44,27 @@ public class Test {
 		}else {
 			System.out.println("Fail: " + str2);
 		}
+	}
+	
+	
+	@Given("^lunch the broswer, Enter URL$")
+	public void lunch_the_broswer_Enter_URL() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		driver = BaseTest.driverMethod("https://www.totaralearning.com/");
+		homepage = new HomePage(driver);
+		homepage.cookies();
+		req = homepage.clickLink();
+	}
+
+	@When("^Fill the form and submit$")
+	public void fill_the_form_and_submit() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    req.registration();
+	}
+
+	@Then("^Verify request is created$")
+	public void verify_request_is_created() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	   
 	}
 }
