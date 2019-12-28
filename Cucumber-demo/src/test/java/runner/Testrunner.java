@@ -14,7 +14,7 @@ import cucumber.api.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-features = "src/test/java", tags= {"@Requests"}
+features = "src/test/java", tags= {"@Logo"}
 ,glue= {"seleniumgluecode"},plugin = {"com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html"}, 
 monochrome = true
 )
